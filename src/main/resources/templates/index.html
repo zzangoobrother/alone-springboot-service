@@ -28,7 +28,7 @@
     <tbody id="tbody">
       <tr th:each="post : ${posts}">
         <td th:text="${post.id}"></td>
-        <td th:text="${post.title}"></td>
+        <td th:text="${post.title}" th:onclick="|location.href='@{/posts/update/{id}(id=${post.id})}'|"></td>
         <td th:text="${post.author}"></td>
         <td th:text="${post.modifiedDate}"></td>
       </tr>
