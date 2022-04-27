@@ -3,6 +3,7 @@ package com.alone.springboot.alonespringbootservice.domain.posts;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import org.junit.After;
 import org.junit.jupiter.api.Test;
@@ -39,5 +40,22 @@ class PostsRepositoryTest {
     Posts posts = postsList.get(0);
     assertThat(posts.getTitle()).isEqualTo(title);
     assertThat(posts.getContent()).isEqualTo(content);
+  }
+
+  @Test
+  void BaseTimeEntity_등록() {
+    LocalDateTime now = LocalDateTime.of(2022, 4, 27, 0, 0, 0);
+    postsRepository.save(Posts.builder()
+                              .title("title")
+                              .content("content")
+                              .author("author")
+                              .build());
+
+    List<Posts> postsList = postsRepository.findAll();
+
+    Posts posts = postsList.get(0);
+
+    assertThat(posts.getCreateDate()).isAfter(now);
+    assertThat(posts.getModifiedDate()).isAfter(now);
   }
 }
