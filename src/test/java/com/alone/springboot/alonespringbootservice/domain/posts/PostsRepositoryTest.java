@@ -1,11 +1,10 @@
 package com.alone.springboot.alonespringbootservice.domain.posts;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ class PostsRepositoryTest {
   @Autowired
   PostsRepository postsRepository;
 
-  @After
+  @AfterEach
   void cleanup() {
     postsRepository.deleteAll();
   }
