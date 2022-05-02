@@ -3,6 +3,14 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
+jar {
+    enabled = false
+}
+mainfest {
+    attributes(
+            'Main-Class': 'com.alone.springboot.alonespringbootservice.AloneSpringbootServiceApplication'
+    )
+}
 
 group = 'com.alone.springboot'
 version = '0.0.1-SNAPSHOT'
@@ -38,8 +46,4 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-
-jar {
-    enabled=false
 }
