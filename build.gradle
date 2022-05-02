@@ -6,11 +6,6 @@ plugins {
 jar {
     enabled = false
 }
-mainfest {
-    attributes(
-            'Main-Class': 'com.alone.springboot.alonespringbootservice.AloneSpringbootServiceApplication'
-    )
-}
 
 group = 'com.alone.springboot'
 version = '0.0.1-SNAPSHOT'
